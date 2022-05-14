@@ -1,0 +1,10 @@
+E:\OpenGL\LearnOpenTK\Common\bin\Debug\netcoreapp3.1\LearnOpenTK.Common.deps.json
+E:\OpenGL\LearnOpenTK\Common\bin\Debug\netcoreapp3.1\LearnOpenTK.Common.dll
+E:\OpenGL\LearnOpenTK\Common\bin\Debug\netcoreapp3.1\LearnOpenTK.Common.pdb
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\Common.GeneratedMSBuildEditorConfig.editorconfig
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\LearnOpenTK.Common.dll
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\LearnOpenTK.Common.pdb
+E:\OpenGL\LearnOpenTK\Common\obj\Debug\netcoreapp3.1\Common.csproj.AssemblyReference.cache

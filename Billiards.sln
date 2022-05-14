@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{F66727D5-726B-41DF-8318-6E12733B278F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billiards", "Chapter2\5-LightCasters-Spotlight\Billiards.csproj", "{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E} = {F66727D5-726B-41DF-8318-6E12733B278F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A8747DC-91DB-4ECB-AB4A-5504F9D715D9}
+	EndGlobalSection
+EndGlobal
