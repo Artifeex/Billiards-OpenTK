@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="LearnOpenTK.Common">
       <HintPath>..\Common\obj\Debug\netcoreapp3.1\LearnOpenTK.Common.dll</HintPath>
     </Reference>

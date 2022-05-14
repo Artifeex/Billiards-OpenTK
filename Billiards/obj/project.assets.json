@@ -188,20 +188,6 @@
             "rid": "win"
           }
         }
-      },
-      "LearnOpenTK.Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "OpenTK": "4.4.0",
-          "System.Drawing.Common": "5.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LearnOpenTK.Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LearnOpenTK.Common.dll": {}
-        }
       }
     }
   },
@@ -447,16 +433,10 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "LearnOpenTK.Common/1.0.0": {
-      "type": "project",
-      "path": "../Common/Common.csproj",
-      "msbuildProject": "../Common/Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "LearnOpenTK.Common >= 1.0.0",
       "OpenTK >= 4.4.0",
       "System.Drawing.Common >= 5.0.0"
     ]
@@ -469,11 +449,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\OpenGL\\CG\\5-LightCasters-Spotlight\\Billiards.csproj",
+      "projectUniqueName": "E:\\OpenGL\\CG\\Billiards\\Billiards.csproj",
       "projectName": "LearnOpenTK",
-      "projectPath": "E:\\OpenGL\\CG\\5-LightCasters-Spotlight\\Billiards.csproj",
+      "projectPath": "E:\\OpenGL\\CG\\Billiards\\Billiards.csproj",
       "packagesPath": "C:\\Users\\Владимир\\.nuget\\packages\\",
-      "outputPath": "E:\\OpenGL\\CG\\5-LightCasters-Spotlight\\obj\\",
+      "outputPath": "E:\\OpenGL\\CG\\Billiards\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -495,11 +475,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "E:\\OpenGL\\CG\\Common\\Common.csproj": {
-              "projectPath": "E:\\OpenGL\\CG\\Common\\Common.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

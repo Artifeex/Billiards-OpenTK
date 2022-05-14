@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yjyKW/nsTxhkbE8dupRyfFCAmh7BlBSkltSQwj53v3yesbSi49iQH3jEMWWIbYB0/1vYVgTwCoa15vkTKq/M3Q==",
+  "dgSpecHash": "SWNF7y8wja/4S/8iu8CEPwduFFYGuWIzxwVDz4DnrkDtbavsuu1NmhyMvn9O/3Z6WiP8xyxK2wfKjROBT4YGGw==",
   "success": true,
-  "projectFilePath": "E:\\OpenGL\\CG\\5-LightCasters-Spotlight\\Billiards.csproj",
+  "projectFilePath": "E:\\OpenGL\\CG\\Billiards\\Billiards.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Владимир\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\Владимир\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
