@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{F66727D5-726B-41DF-8318-6E12733B278F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billiards", "Chapter2\5-LightCasters-Spotlight\Billiards.csproj", "{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Billiards", "5-LightCasters-Spotlight\Billiards.csproj", "{9E012A87-E10B-4A7D-A51E-3792120C2446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +19,16 @@ Global
 		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CEFE30B-F99D-4E62-8D33-2366A6F75F7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E012A87-E10B-4A7D-A51E-3792120C2446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E012A87-E10B-4A7D-A51E-3792120C2446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E012A87-E10B-4A7D-A51E-3792120C2446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E012A87-E10B-4A7D-A51E-3792120C2446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2DD36D08-FBC6-40E1-8EB9-3C94ABE6985E} = {F66727D5-726B-41DF-8318-6E12733B278F}
+		{9E012A87-E10B-4A7D-A51E-3792120C2446} = {F66727D5-726B-41DF-8318-6E12733B278F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2A8747DC-91DB-4ECB-AB4A-5504F9D715D9}
