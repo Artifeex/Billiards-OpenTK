@@ -19,7 +19,6 @@ namespace LearnOpenTK.Common
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, handle);
 
-            // For this example, we're going to use .NET's built-in System.Drawing library to load textures.
 
             // Load the image
             using (var image = new Bitmap(path))
@@ -27,7 +26,6 @@ namespace LearnOpenTK.Common
                 // Our Bitmap loads from the top-left pixel, whereas OpenGL loads from the bottom-left, causing the texture to be flipped vertically.
                 // This will correct that, making the texture display properly.
                 //image.RotateFlip(RotateFlipType.RotateNoneFlipY);
-
                 // First, we get our pixels from the bitmap we loaded.
                 // Arguments:
                 //   The pixel area we want. Typically, you want to leave it as (0,0) to (width,height), but you can
@@ -83,8 +81,7 @@ namespace LearnOpenTK.Common
             // Generated mipmaps go all the way down to just one pixel.
             // OpenGL will automatically switch between mipmaps when an object gets sufficiently far away.
             // This prevents moiré effects, as well as saving on texture bandwidth.
-            // Here you can see and read about the morié effect https://en.wikipedia.org/wiki/Moir%C3%A9_pattern
-            // Here is an example of mips in action https://en.wikipedia.org/wiki/File:Mipmap_Aliasing_Comparison.png
+          
             GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
 
             return new Texture(handle);

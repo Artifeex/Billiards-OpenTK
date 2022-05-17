@@ -7,32 +7,19 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
 using System.Collections.Generic;
 
-namespace LearnOpenTK
+namespace Billiards
 {
-    // This tutorial is split up into multiple different bits, one for each type of light.
-
-    // The following is the code for the spotlight, the functionality is much the same as the point light except it
-    // only shines in one direction, for this we need the angle between the spotlight direction and the lightDir
-    // then we can check if that angle is within the cutoff of the spotlight, if it is we light it accordingly
+    
     public class Window : GameWindow
     {
         
         int countSpheres = 3;
         List<Sphere> spheres = new List<Sphere>();
 
-        // We draw multiple different cubes and it helps to store all
-        // their positions in an array for later when we want to draw them
         string[] pathTextures = { "Resources/15.jpg", "Resources/14.jpg", "Resources/8.jpg" };
         string[] pathSpeculars = { "Resources/15_specular.jpg" , "Resources/14_specular.jpg", "Resources/8_specular.jpg" };
   
-
-       
-
-        //Sphere sphere;
         Plane plane;
-
-   
-
         private Camera _camera;
 
         private bool _firstMove = true;
@@ -56,7 +43,7 @@ namespace LearnOpenTK
 
             for (int i = 0; i < countSpheres; i++)
             {
-                Sphere sphere = new Sphere(1.0f, 30, 30, new Vector3(i + 1, 0.1f, 0f), pathTextures[i], pathSpeculars[i]);
+                Sphere sphere = new Sphere(1.0f, 30, 30, new Vector3(i + 1, 0.1f, i ), pathTextures[i], pathSpeculars[i]);
                 spheres.Add(sphere);
             }
 

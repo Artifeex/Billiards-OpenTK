@@ -14,7 +14,9 @@ out vec2 TexCoords;
 void main()
 {
     gl_Position = vec4(aPos, 1.0) * model * view * projection;
+    //To calculate light in world space
     FragPos = vec3(vec4(aPos, 1.0) * model);
+    //So that normals don't die when scaling
     Normal = aNormal * mat3(transpose(inverse(model)));
     TexCoords = aTexCoords;
 }

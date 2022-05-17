@@ -8,14 +8,18 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
-namespace LearnOpenTK
+namespace Billiards
 {
     class Plane
     {
-        int vertexBufferObject = GL.GenBuffer();
-        int vertexArrayObject = GL.GenVertexArray();
-        int elementBufferObject = GL.GenBuffer();
+        int vertexBufferObject;
+        int vertexArrayObject;
+        int elementBufferObject;
+        float[] lightingPos =
+        {
+            0.0f, 3.0f, -1.0f // 1 proj
 
+        };
         float[] vertices =
         { 
             -5.0f, 0.0f, 3.0f,  0f, 1.0f, 0f, 0.0f, 0.0f,
@@ -28,18 +32,23 @@ namespace LearnOpenTK
         {
             0, 1, 2, 0, 2, 3
         };
+
+        private readonly Vector3[] spotLightPositions =
+        {
+            new Vector3(-2.0f, 3.0f, 0.0f),
+            new Vector3(0f, 3.0f, 0.0f),
+            new Vector3(2f, 3.0f, 0.0f)
+        };
         Shader shader;
         Vector3 position;
-
 
         private Texture diffuseMap;
         private Texture specularMap;
 
         public Plane(Vector3 pos)
         {   
-            
             position = pos;
-            //Bind and send in VBO
+            vertexBufferObject = GL.GenBuffer();
             vertexArrayObject = GL.GenVertexArray();
             GL.BindVertexArray(vertexArrayObject);
 
@@ -49,7 +58,6 @@ namespace LearnOpenTK
             elementBufferObject = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, elementBufferObject);
             GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Length * sizeof(uint), indices, BufferUsageHint.StaticDraw);
-
 
             shader = new Shader("Shaders/shader.vert", "Shaders/lighting.frag");
 
@@ -67,8 +75,6 @@ namespace LearnOpenTK
 
             diffuseMap = Texture.LoadFromFile("Resources/BilliardTexture.jpg");
             specularMap = Texture.LoadFromFile("Resources/Specular.jpg");
-
-
         }
 
         public void Draw(Camera camera)
@@ -87,30 +93,27 @@ namespace LearnOpenTK
 
             shader.SetInt("material.diffuse", 0);
             shader.SetInt("material.specular", 1);
-            shader.SetVector3("material.specular", new Vector3(0.0f, 0.0f, 0.0f));
+
             shader.SetFloat("material.shininess", 32.0f);
 
-            shader.SetVector3("light.position", camera.Position);
-            shader.SetVector3("light.direction", camera.Front);
-            shader.SetFloat("light.cutOff", MathF.Cos(MathHelper.DegreesToRadians(30f)));
-            shader.SetFloat("light.outerCutOff", MathF.Cos(MathHelper.DegreesToRadians(40f)));
-            shader.SetFloat("light.constant", 1.0f);
-            shader.SetFloat("light.linear", 0.09f);
-            shader.SetFloat("light.quadratic", 0.032f);
-            shader.SetVector3("light.ambient", new Vector3(0.2f));
-            shader.SetVector3("light.diffuse", new Vector3(0.5f));
-            shader.SetVector3("light.specular", new Vector3(1.0f));
-            
+            for (int i = 0; i < spotLightPositions.Length; i++)
+            {
+                shader.SetVector3($"pointsSpotLight[{i}].position", spotLightPositions[i]);
+                shader.SetVector3($"pointsSpotLight[{i}].direction", new Vector3(0, -1, 0));
+                shader.SetVector3($"pointsSpotLight[{i}].ambient", new Vector3(0.2f, 0.2f, 0.2f));
+                shader.SetVector3($"pointsSpotLight[{i}].diffuse", new Vector3(1.0f, 1.0f, 1.0f));
+                shader.SetVector3($"pointsSpotLight[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+                shader.SetFloat($"pointsSpotLight[{i}].constant", 1.0f);
+                shader.SetFloat($"pointsSpotLight[{i}].linear", 0.09f);
+                shader.SetFloat($"pointsSpotLight[{i}].quadratic", 0.032f);
+                shader.SetFloat($"pointsSpotLight[{i}].cutOff", MathF.Cos(MathHelper.DegreesToRadians(25f)));
+                shader.SetFloat($"pointsSpotLight[{i}].outerCutOff", MathF.Cos(MathHelper.DegreesToRadians(30f)));
+            }          
             Matrix4 model = Matrix4.CreateScale(1.0f) * Matrix4.CreateTranslation(position);
 
             shader.SetMatrix4("model", model);
 
             GL.DrawElements(PrimitiveType.Triangles, indices.Length, DrawElementsType.UnsignedInt, 0);
-        }
-
-        void Move(Vector3 borders)
-        {
-
         }
     }
 }

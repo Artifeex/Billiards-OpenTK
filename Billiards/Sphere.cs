@@ -8,25 +8,34 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Windowing.Desktop;
-namespace LearnOpenTK
+namespace Billiards
 {
     class Sphere
     {
-        int vertexBufferObject = GL.GenBuffer();
-        int vertexArrayObject = GL.GenVertexArray();
-        int elementBufferObject = GL.GenBuffer();
+        int vertexBufferObject;
+        int vertexArrayObject;
+        int elementBufferObject;
+
         List<float> vertices = new List<float>();
         List<uint> indices = new List<uint>();
+
         Shader shader;
         Vector3 position;
 
-        float speedRotation = 2f;
-        float speedMove = 0.01f;
+        private readonly Vector3[] spotLightPositions =
+        {
+            new Vector3(-2.0f, 3.0f, 0.0f),
+            new Vector3(0f, 3.0f, 0.0f),
+            new Vector3(2f, 3.0f, 0.0f)
+        };
+
+        float speedRotation = 5f;
+        float speedMove = 0.03f;
         float rotation = -90.0f;
 
         private Texture diffuseMap;
         private Texture specularMap;
-
+        //stack - y sectors - x. parametric
         public Sphere(float radius, uint stackCount, uint sectorCount, Vector3 pos, string pathTexture, string pathSpecular)
         {
             float x, y, z, xy;                              // vertex position
@@ -101,20 +110,21 @@ namespace LearnOpenTK
             }
 
             position = pos;
-            //Bind and send in VBO
+            //GEN VBO
+            vertexBufferObject = GL.GenBuffer();
+            // GEN VAO
             vertexArrayObject = GL.GenVertexArray();
             GL.BindVertexArray(vertexArrayObject);
-
+            // Send data in VBO
             GL.BindBuffer(BufferTarget.ArrayBuffer, vertexBufferObject);
             GL.BufferData(BufferTarget.ArrayBuffer, vertices.Count * sizeof(float), vertices.ToArray(), BufferUsageHint.StaticDraw);
-
+            // Geb EBO and set data
             elementBufferObject = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, elementBufferObject);
             GL.BufferData(BufferTarget.ElementArrayBuffer, indices.Count * sizeof(uint), indices.ToArray(), BufferUsageHint.StaticDraw);
 
-
             shader = new Shader("Shaders/shader.vert", "Shaders/lighting.frag");
-
+            // configuration attrib
             var positionLocation = shader.GetAttribLocation("aPos");
             GL.EnableVertexAttribArray(positionLocation);
             GL.VertexAttribPointer(positionLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
@@ -129,8 +139,6 @@ namespace LearnOpenTK
 
             diffuseMap = Texture.LoadFromFile(pathTexture);
             specularMap = Texture.LoadFromFile(pathSpecular);
-
-            
         }
 
         public void Draw(Camera camera)
@@ -146,22 +154,24 @@ namespace LearnOpenTK
             shader.SetMatrix4("projection", camera.GetProjectionMatrix());
 
             shader.SetVector3("viewPos", camera.Position);
-
+            //implement texture
             shader.SetInt("material.diffuse", 0);
             shader.SetInt("material.specular", 1);
-            shader.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             shader.SetFloat("material.shininess", 32.0f);
 
-            shader.SetVector3("light.position", camera.Position);
-            shader.SetVector3("light.direction", camera.Front);
-            shader.SetFloat("light.cutOff", MathF.Cos(MathHelper.DegreesToRadians(30f)));
-            shader.SetFloat("light.outerCutOff", MathF.Cos(MathHelper.DegreesToRadians(40f)));
-            shader.SetFloat("light.constant", 1.0f);
-            shader.SetFloat("light.linear", 0.09f);
-            shader.SetFloat("light.quadratic", 0.032f);
-            shader.SetVector3("light.ambient", new Vector3(0.2f));
-            shader.SetVector3("light.diffuse", new Vector3(0.5f));
-            shader.SetVector3("light.specular", new Vector3(1.0f));
+            for (int i = 0; i < spotLightPositions.Length; i++)
+            {
+                shader.SetVector3($"pointsSpotLight[{i}].position", spotLightPositions[i]);
+                shader.SetVector3($"pointsSpotLight[{i}].direction", new Vector3(0, -1, 0));
+                shader.SetVector3($"pointsSpotLight[{i}].ambient", new Vector3(0.2f, 0.2f, 0.2f));
+                shader.SetVector3($"pointsSpotLight[{i}].diffuse", new Vector3(1.0f, 1.0f, 1.0f));
+                shader.SetVector3($"pointsSpotLight[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+                shader.SetFloat($"pointsSpotLight[{i}].constant", 1.0f);
+                shader.SetFloat($"pointsSpotLight[{i}].linear", 0.09f);
+                shader.SetFloat($"pointsSpotLight[{i}].quadratic", 0.032f);
+                shader.SetFloat($"pointsSpotLight[{i}].cutOff", MathF.Cos(MathHelper.DegreesToRadians(25f)));
+                shader.SetFloat($"pointsSpotLight[{i}].outerCutOff", MathF.Cos(MathHelper.DegreesToRadians(30f)));
+            }
 
             Matrix4 rotationX = Matrix4.CreateRotationX(MathHelper.DegreesToRadians(-90.0f));
             Matrix4 rotationZ = Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(8.0f));

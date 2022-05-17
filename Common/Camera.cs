@@ -14,7 +14,7 @@ namespace LearnOpenTK.Common
     {
         // Those vectors are directions pointing outwards from the camera to define how it rotated.
         private Vector3 _front = -Vector3.UnitZ;
-
+        //(0,1,0)
         private Vector3 _up = Vector3.UnitY;
 
         private Vector3 _right = Vector3.UnitX;
@@ -38,6 +38,7 @@ namespace LearnOpenTK.Common
         public Vector3 Position { get; set; }
 
         // This is simply the aspect ratio of the viewport, used for the projection matrix.
+        // 1920/1080
         public float AspectRatio { private get; set; }
 
         public Vector3 Front => _front;

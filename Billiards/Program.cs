@@ -2,7 +2,7 @@
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 
-namespace LearnOpenTK
+namespace Billiards
 {
     public static class Program
     {
@@ -11,7 +11,7 @@ namespace LearnOpenTK
             var nativeWindowSettings = new NativeWindowSettings()
             {
                 Size = new Vector2i(1700, 900),
-                Title = "LearnOpenTK - Light casters - spotlight",
+                Title = "Billiards",
                 // This is needed to run on macos
                 Flags = ContextFlags.ForwardCompatible,
             };
